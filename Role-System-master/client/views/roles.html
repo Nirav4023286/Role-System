@@ -1,0 +1,37 @@
+<div class="container" data-ng-init="init()">
+    <br/><br/>
+
+
+    <label ng-repeat="check in checks" class="checkbox-inline"><input type="checkbox" data-checklist-value="check.text" data-checklist-model="result.user.checks" />{{check.text}}</label>
+
+    <br/><br/><br/>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-2 input_label" for="select_status">Select Status:</label>
+            <div class="col-md-3">
+                <select class="form-control input-sm" id="select_status" ng-model="result.status">
+          <option>New</option>
+          <option>In Progress</option>
+          <option>Approved</option>
+
+        </select>
+            </div>
+            <div class="col-md-7">
+            </div>
+        </div>
+    </form>
+    <br/><br/>
+    <table class="table table-bordered">
+        <th></th>
+        <th ng-repeat="header in colHeaders">{{header}}</th>
+        <tr ng-repeat="row in rowHeaders">
+            <td>{{row}}</td>
+            <td ng-repeat="data in getRowData(row)"><input type="checkbox" data-checklist-model="result.accessProperty" data-checklist-value="data" /></td>
+        </tr>
+    </table>
+
+
+    <a href="/#/saveData" class="btn btn-success btn-md" ng-hide="edit" ng-click="submit()">Submit</a>
+    <a href="/#/saveData" class="btn btn-success btn-md" ng-show="edit" ng-click="submitEdit()">Submit Edit</a>
+
+</div>

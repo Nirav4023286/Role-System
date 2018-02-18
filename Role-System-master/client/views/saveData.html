@@ -1,0 +1,27 @@
+<div class="container">
+    <br /><br /><br />
+    <table class="table table-bordered">
+        <th>S.No.</th>
+        <th>Status</th>
+        <th>Roles Selected</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr ng-repeat="role in roles">
+            <td>{{ $index + 1 }}</td>
+            <td>{{role.status}}</td>
+
+
+
+            <td>{{role.user.checks}}</td>
+
+
+
+            <td><a href="/#/roles" class="btn btn-warning btn-xs" ng-click="edit($index)"><span class="glyphicon glyphicon-edit"></span></a></td>
+
+
+
+
+            <td><button class="btn btn-danger btn-xs" ng-click="delete($index)"><span class="glyphicon glyphicon-trash"></span></button></td>
+        </tr>
+    </table>
+</div>
